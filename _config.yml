@@ -1,2 +1,4 @@
-theme: jekyll-theme-cayman
+theme: jekyll-theme-minimal
 title: Welcome to my Website
+logo: logo.png
+author: Rakshit Rao
