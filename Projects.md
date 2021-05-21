@@ -1,4 +1,4 @@
-## [Home](https://rakshitrao99.github.io/) | [Projects](https://rakshitrao99.github.io/Projects)|
+## [Home](https://rakshitrao99.github.io/) | [Projects](https://rakshitrao99.github.io/Projects) |
 
 ### Digital Image Quantization
 * Implemented different adaptive, tapered quantizations algorithms for color images like uniform quantization, popularity
