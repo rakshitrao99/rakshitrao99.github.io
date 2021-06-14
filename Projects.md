@@ -1,4 +1,4 @@
-## [Home](https://rakshitrao99.github.io/) | [Projects](https://rakshitrao99.github.io/Projects) |
+## [Home](https://rakshitrao99.github.io/)|[Projects](https://rakshitrao99.github.io/Projects)|
 
 ### Digital Image Quantization
 * Implemented different adaptive, tapered quantizations algorithms for color images like uniform quantization, popularity
@@ -11,10 +11,9 @@ algorithm and median cut, and produced high-quality reproduction of color images
 
 ### Digital makeup transfer and stylization
 
+- Transfered makeup from an example image to a subject image by modifying the color and skin detail while preserving the face structure.
+
 ### Object detection in Images
 * Successfully detected objects using color of the same object with the help of OpenCV library and Numpy in python.
 * Implemented color and shape-based tracking for detecting objects using a hue-saturation-value (HSV) color model.
 * Implementation used manual trackbars for choosing the correct upper and lower boundaries for each dimension of HSV.
-
-
-
