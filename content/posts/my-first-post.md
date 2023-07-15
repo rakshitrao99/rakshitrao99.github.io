@@ -2,7 +2,6 @@
 title: "Introduction to Feature Attributes in Machine Learning-I"
 subtitle: "Marvel at the Extravaganza of Enigmatic Empirical Engines!!"
 date: 2022-12-13T01:06:16+05:30
-draft: true
 math: true
 ---
 
