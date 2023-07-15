@@ -4,12 +4,14 @@ baseURL = "httpd://rakshitrao99.github.io/rakshitrao99.github.io/"
 theme = "LoveIt"
 
 # website title
-title = "My Personal Site"
+title = "Data Divulgence"
 
 # language code ["en", "zh-CN", "fr", "pl", ...]
 languageCode = "en"
 # language name ["English", "简体中文", "Français", "Polski", ...]
 languageName = "English"
+
+
 
 # Author config
 [author]
@@ -46,6 +48,58 @@ languageName = "English"
     name = "Categories"
     url = "/categories/"
     title = ""
+
+[params]
+  # site default theme ["auto", "light", "dark"]
+  defaultTheme = "auto"
+  # LoveIt NEW | 0.1.1 which hash function used for SRI, when empty, no SRI is used
+  # ["sha256", "sha384", "sha512", "md5"]
+  fingerprint = ""
+  # LoveIt NEW | 0.2.0 date format
+  dateFormat = "2006-01-02"
+  # website title for Open Graph and Twitter Cards
+  title = "Data Divulgence"
+  # website description for RSS, SEO, Open Graph and Twitter Cards
+  description = "Data Divulgence"
+
+  [params.app]
+    # optional site title override for the app when added to an iOS home screen or Android launcher
+    title = "My cool site"
+    # whether to omit favicon resource links
+    noFavicon = false
+    # modern SVG favicon to use in place of older style .png and .ico files
+    svgFavicon = ""
+    # Android browser theme color
+    themeColor = "#ffffff"
+    # Safari mask icon color
+    iconColor = "#5bbad5"
+    # Windows v8-10 tile color
+    tileColor = "#da532c"
+
+    [params.home]
+    # LoveIt NEW | 0.2.0 amount of RSS pages
+    rss = 10
+    # Home page profile
+    [params.home.profile]
+      # subtitle shown in home page (HTML format is supported)
+      subtitle = "A Fairness Focused Feature Frittering Framework"
+      # whether to use typeit animation for subtitle
+      typeit = true
+      # whether to show social links
+      social = true
+      # LoveIt NEW | 0.2.0 disclaimer (HTML format is supported)
+      disclaimer = ""
+    # Home page posts
+    [params.home.posts]
+      enable = true
+      # special amount of posts in each home posts page
+      paginate = 6
+      # LoveIt DELETED | 0.2.0 replaced with hiddenFromHomePage in params.page
+      # default behavior when you don't set "hiddenFromHomePage" in front matter
+      defaultHiddenFromHomePage = false
+
+
+
 
 # Markup related configuration in Hugo
 [markup]
