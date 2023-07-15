@@ -97,6 +97,13 @@ languageName = "English"
       # LoveIt DELETED | 0.2.0 replaced with hiddenFromHomePage in params.page
       # default behavior when you don't set "hiddenFromHomePage" in front matter
       defaultHiddenFromHomePage = false
+    [params.header.title]
+      # URL of the LOGO
+      # LOGO 的 URL
+      logo = ""
+      # title name
+      # 标题名称
+      name = "Data Divulgence"
 
 
 
