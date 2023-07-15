@@ -4,7 +4,7 @@ baseURL = "httpd://rakshitrao99.github.io/rakshitrao99.github.io/"
 theme = "LoveIt"
 
 # website title
-title = "My Personal Site"
+title = "Data Divulgence"
 
 # language code ["en", "zh-CN", "fr", "pl", ...]
 languageCode = "en"
