@@ -1,4 +1,5 @@
-baseURL = "httpd://rakshitrao99.github.io/rakshitrao99.github.io/"
+# baseURL = "http://example.org/"
+baseURL = "https://rakshitrao99.github.io/"
 
 # Change the default theme to be use when building the site with Hugo
 theme = "LoveIt"

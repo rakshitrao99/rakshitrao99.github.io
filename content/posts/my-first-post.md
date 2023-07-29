@@ -2,6 +2,7 @@
 title: "Introduction to Feature Attributes in Machine Learning-I"
 subtitle: "Marvel at the Extravaganza of Enigmatic Empirical Engines!!"
 date: 2022-12-13T01:06:16+05:30
+draft: true
 math: true
 ---
 
@@ -46,19 +47,23 @@ In terms of computation, they are very fast and inexpensive and are very good fo
 
 We will discuss the important methods below:
 
-### ANalysis Of VAriance (ANOVA)
+### Analysis Of Variance (ANOVA)
 The correlation between a numerical and categorical variable is find using statistical test such as F-test (ANOVA), t-test, etc. In this case, we will use ANOVA for hypothesis testing.
 
-ANOVA stands for Analysis Of Variance. So, basically this test measures if there are any significant differences between the means of the values of the numeric variable for each categorical value. This is something that you can visualize using a box-plot as well.
+ANOVA stands for Analysis Of Variance. So, basically this test measures if there are any significant differences between the means of the values of the numeric variable for each categorical value. This is something that you can visualize using a box-plot as well. A typical box-plot is shown below with five number summary:
+![box-plot](/feature_selection/Untitled-box-and-whisker-plot.png "A typical box-plot with important notations")
 
-Below items must be remembered about ANOVA hypothesis test:
+The below items must be remembered about the ANOVA hypothesis test. The definition of the group is defined as follows:'
+![box-plot](/feature_selection/ANOVA_groups.png "A feature is disintegrated according to the classes")
+And using the box plot we can visualize the distribution according to each category:
+![box-plot](/feature_selection/categorical-whiskers.png "Box-plot for each class")
 
-**Null hypothesis**:
+**Null hypothesis $H_0$**:
 * There is no relationship between independent variable and dependent variable (basic definition)
 * The variables are not correlated with each other.
 * Groups means are equal (no variation in means of groups)
 
-**Alternate hypothesis**:
+**Alternate hypothesis $H_0$**:
 
 * There is a relationship between independent variable and dependent variable
 * The variable are correlated with each other.
@@ -82,6 +87,8 @@ $$F_{value}=\frac{\text{between-group variance}}{\text{within-group variance}}=\
 
 Now, we have calculated the F-value, what we need to do is find the critical value using the F-distribution curve, The F-distribution table is organized based on the $\alpha$ value (usually 0.05). Next, the columns of the f-distribution table are based on df1 (degree of freedom for numerator or between-group) while the rows are based on df2 (degree of freedom for denominator or within-group).
 
+![box-plot](/feature_selection/F_curve_distribution.png "F-distribution curve")
+
 Now, we have find the F-critical and F-value, then we can find whether to accept the null hypothesis or reject the null hypothesis.
 
 ### Chi-square test for Categorical Features
@@ -99,8 +106,7 @@ For all three tests, the computational procedure includes the following steps:
 
 1. Define your null and alternative hypotheses before collecting your data. (In our case, the null and alternative hypotheses are same from the ANOVA hypothesis testing)
 
-2. Calculate the chi-square test statistics, using the contigency table. Here is how you create a contigency table and calculate the chi-square value using the contigency table:
-
+2. Calculate the chi-square test statistics, using the contigency table. Here is how you create a contigency table and calculate the chi-square value using the contigency table: ![box-plot](/feature_selection/contigency_table.png "Contigency Table") Therfore, the chi-squared statistics is calculated as follows:
 $$\chi^2=\sum_{i=1}^{N}\frac{(O_i-E_i)^2}{E_i}=\sum_{i=1}^{N}\frac{O_i^2}{E_i}-N$$
 
 3. Determine the degrees of freedom, df, of that statistic.
@@ -119,4 +125,37 @@ $$\chi_{yates}^2=\sum_{i=1}^{N}\frac{(|O_i-E_i|-0.5)^2}{E_i}$$
 $$\phi=\pm \sqrt{\frac{\chi^2}{N}}$$
 $$C=\sqrt{\frac{\chi^2}{\chi^2+N}}$$
 $$V=\sqrt{\frac{\chi^2/N}{min(k-1,l-1)}}$$
+
+### Mutual Imformation based Correlation
+Mutual information is a concept from information theory and statistics that measures the amount of information that two random variables share. It quantifies the degree of dependency or association between the variables. In simpler terms, mutual information tells us how much knowing the value of one variable can help us predict the value of another variable.
+
+Mutual information (MI) between two random variables is a non-negative value, which measures the dependency between the variables. It is equal to zero if and only if two random variables are independent, and higher values mean higher dependency. Mutual Information methods can capture any kind of statistical dependency, but being nonparametric, they require more samples for accurate estimation.
+
+Consider two random variables $X$ and $Y$ with a joint probability mass function $p(x,y)$  and marginal probability mass functions $p(x)$ and $p(y)$. The **mutual information** $I(X;Y)$ is the relative entropy between the joint distribution and the product distribution $p(x)p(y)$
+
+$$I(X;Y)=\sum_{x \in \mathcal{X}}\sum_{y \in \mathcal{Y}}p(x,y) \log \left(\frac{p(x,y)}{p(x)p(y)} \right) \\\\
+I(X;Y)=\int_{\mathcal{X}}\int_{\mathcal{Y}}p(x,y) \log \left(\frac{p(x,y)}{p(x)p(y)} \right)dy dx$$
+
+If the natural logarithm is used, the unit of mutual information is the nat. If the log base 2 is used, the unit of mutual information is the shannon, also known as the bit. If the log base 10 is used, the unit of mutual information is the hartley, also known as the ban or the dit.
+
+The current approach for calculating mutual information for two categorical features is given by:
+
+1. We have $X \in \{x_1,x_2,\cdots,x_K\}$ and $Y \in \{y_1,y_2,\cdots,y_L\}$ are two categorical features with $X$ having $K$ categories and $Y$ have $L$ categories. 
+2. Make a contingency table from the variables. 
+3. Normalize the table so it all sums to 1. This would approximate the joint distribution $p(x,y)$.
+4. Use this to compute mutual information.
+
+![MI](/feature_selection/mi_info.jpg "Mutual Information")
+
+The above methods computes the Mutual Information given both the random variables are categorical if any of the variable is numerical, then we have to convert that continuous variable into discrete variable. In order to do so, there are various methods, the simplest one is binning. Another method that is quite popular is nearest neightbour method of entropy estimation between continuous and discrete variable. I haven’t provided the description of that method, but there are several papers implementing that approach.
+
+**Normalized Mutual Information:** 
+
+If you want to use Mutual Information as an indicator of how strongly two variables correlate, it is useful to normalize into a range of [0,1]. The most intuitive way of doing this might be:
+
+$$U(X;Y) = \frac{I(X;Y)}{\frac{H(X)+H(Y)}{2}} = \frac{2I(X;Y)}{H(X)+H(Y)}$$
+
+This would be the uncertainty coefficient (Theil’s U).
+
+
 
