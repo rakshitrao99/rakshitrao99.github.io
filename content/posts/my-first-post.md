@@ -156,5 +156,42 @@ $$U(X;Y) = \frac{I(X;Y)}{\frac{H(X)+H(Y)}{2}} = \frac{2I(X;Y)}{H(X)+H(Y)}$$
 
 This would be the uncertainty coefficient (Theil’s U).
 
+### Univariate Analysis - Correlation Coefficient
+The correlation value (correlation coefficient) is used to measure the strength and nature of the relationship between two continuous variables (numerical variables) while doing feature selection for machine learning. The value ranges between -1 and +1. A correlation of -1 shows a negative correlation, while a correlation of 1 shows a perfect positive correlation. A correlation of 0 shows no linear relationship between the movement of the two variables.
+
+#### Pearson Correlation C- Pearson Correlation Coefficient $(r)$
+Pearson correlation coefficient (named after Karl Pearson) is used to show a linear relationship between two variables. It is calculated as:oefficient $(r)$
+Pearson correlation coefficient (named after Karl Pearson) is used to show a linear relationship between two variables. It is calculated as:
+
+$$
+r=\frac{\sum (x_i- \bar{x})(y_i- \bar{y})}{\sqrt{\sum (x_i- \bar{x})^2 \sum (y_i- \bar{y})^2}}
+\\\\
+r=\text{correlation coefficient}
+\\\\
+x_i=\text{values of the x variable in a sample}
+\\\\
+\hat{x}=\text{mean of the values of the x variables}
+\\\\
+y_i=\text{values of the y variable in a sample}
+\\\\
+\hat{y}=\text{mean of the values of the y variables}$$
+
+There are some assumptions relating to the usage of the **Pearson-R** correlation coefficient:
+
+- Both variables should be normally distributed (gaussian distribution)
+- **Linearity**: Linearity assumes a straight-line relationship between each of the two variables
+- **Homoscedasticity**: Homoscedasticity assumes that data is equally distributed around the regression line
+
+#### Spearman Correlation Coefficient $(\rho)$
+Spearman correlation (named after Charles Spearman) is the non-parametric version of Pearson’s correlations. The Spearman correlation evaluates the monotonic relationship between two continuous. In a monotonic relationship, the variables tend to change together, but not necessarily at a constant rate. The Spearman correlation coefficient is based on the ranked values for each variable rather than the raw data.
+
+Similar to Pearson’s Correlation, Spearman also returns a value between [-1,1] for full negative correlation and full positive correlation, respectively.
+
+![Correlation](/feature_selection/corr.png "Comparison between Pearson and spearman Correlation coefficient")
+
+There are some problems with these correlation coefficients. One is the presence of outliers and the other is that these correlation coefficients can handle only the linear relationship. Pearson correlation coefficients measure only linear relationships. Spearman correlation coefficients measure only monotonic relationships. So a meaningful relationship can exist even if the correlation coefficients are 0. Examine a scatterplot to determine the form of the relationship.
+
+![Correlation](/feature_selection/corr_anom.png "This graph shows a very strong relationship. But the Pearson coefficient and Spearman coefficient are both approximately 0.")
+
 
 
